@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'lightHome.css' %}" id="light-theme" >
+    <link rel="stylesheet" href="{% static 'darkHome.css' %}"id="dark-theme" disabled>
+    <title>โครงการ</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>กลุ่มงานยุทธศาสตร์ และแผนงานโครงการ</h1>
+        <h2>โรงพยาบาลลำพูน</h2>
+        <h2 class = "statusSentence">แถบแจ้งสถานการณ์ดำเนินงาน</h2>
+        <button onclick="toggleTheme()" class="butTheme">เปลี่ยนธีม</button>
+        <table class="project-table">
+            <caption>รายงานผลการดำเนินงานโครงการ</caption>
+            <thead>
+                <tr>
+                    <th>ชื่อโครงการ</th>
+                    <th>หน่วยงาน</th>
+                    <th>สถานะ</th>
+                    <th>ยอดโครงการ(บาท)</th>
+                    <th>เบิกแล้ว(บาท)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in mymembers %}
+                <tr>
+                    <td>{{ member.projectName }}</td>
+                    <td>{{ member.agency }}</td>
+                    <td>{{ member.status }}</td>
+                    <td>{{ member.total }}</td>
+                    <td>{{ member.withdraw }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const lightThemeLink = document.getElementById('light-theme');
+            const darkThemeLink = document.getElementById('dark-theme');
+        
+            lightThemeLink.toggleAttribute('disabled');
+            darkThemeLink.toggleAttribute('disabled');
+        }
+    </script>
+
+</body>
+
+</html>
