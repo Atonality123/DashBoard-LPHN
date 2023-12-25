@@ -1,0 +1,47 @@
+/* dowload status box */
+
+.statusBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statusBox div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 5px; 
+    border-radius: 5px;
+    color: black;
+}
+
+.plan { background-color: red; }
+.permit { background-color: yellow; }
+.process { background-color: gray; }
+.finish { background-color: green; }
+
+/* dowload form box */
+
+.dowloadForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dowloadForm button{
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    margin: 5px;
+    height: 40px;
+    display: flex;
+    flex: 1;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.dowloadForm button:hover{
+    background-color: #4ca8af;
+    color: white;
+}
