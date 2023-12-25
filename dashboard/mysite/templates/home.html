@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Box.css' %}" >
     <link rel="stylesheet" href="{% static 'lightHome.css' %}" id="light-theme" >
     <link rel="stylesheet" href="{% static 'darkHome.css' %}"id="dark-theme" disabled>
     <title>โครงการ</title>
@@ -17,6 +18,20 @@
         <h1>กลุ่มงานยุทธศาสตร์ และแผนงานโครงการ</h1>
         <h2>โรงพยาบาลลำพูน</h2>
         <h2 class = "statusSentence">แถบแจ้งสถานการณ์ดำเนินงาน</h2>
+
+        <div class="statusBox">
+            <div class="plan">ยังไม่ได้ดำเนินการ</div>
+            <div class="permit">ขอเสนออนุมัติ</div>
+            <div class="process">ระหว่างดำเนินงาน</div>
+            <div class="finish">ดำเนินงานเสร็จแล้ว</div>
+        </div>
+
+        <div class="dowloadForm">
+            <button>แบบฟอร์ม โครงการขออนุมัติต่างๆ</button>
+            <button>แบบฟอร์ม ขออนุมัติเบิกพัสดุ</button>
+            <button>ตัวอย่างโครงการ</button>
+        </div>
+
         <button onclick="toggleTheme()" class="butTheme">เปลี่ยนธีม</button>
         <table class="project-table">
             <caption>รายงานผลการดำเนินงานโครงการ</caption>
