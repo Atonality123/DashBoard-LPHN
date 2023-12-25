@@ -1,10 +1,9 @@
-/* Shared Styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
-  background-color: #f5f5f5; /* Change this to your preferred light background color */
-  color: #333; /* Change this to your preferred light text color */
+  background-color: #f5f5f5;
+  color: #333; 
 }
 
 .container {
@@ -14,26 +13,28 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, box-shadow 0.3s;
-  background-color: #fff; /* Change this to your preferred light container background color */
+  background-color: #fff;
   position: relative;
 }
 
 h1 {
   font-size: 32px;
+  color: #333; 
 }
 
 h2 {
   font-size: 22px;
+  color: #444; 
 }
 
 .statusSentence {
-  color: gray;
+  color: #555; 
 }
 
 .butTheme {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
@@ -61,6 +62,7 @@ h2 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .project-table th,
@@ -72,28 +74,14 @@ h2 {
 
 .project-table th {
   background-color: #f2f2f2;
+  color: #333;
 }
 
 .project-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Responsive Styles */
-@media only screen and (max-width: 600px) {
-  .container {
-      padding: 10px;
-  }
-
-  h1 {
-      font-size: 28px;
-  }
-
-  h2 {
-      font-size: 20px;
-  }
-
-  .project-table th,
-  .project-table td {
-      padding: 8px;
-  }
+.findProject {
+  font-size: 16px;
+  color: #333;
 }
