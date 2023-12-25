@@ -97,3 +97,122 @@ h2 {
       padding: 8px;
   }
 }
+=======
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+
+  .statusSentence {
+    color: gray;
+  }
+
+  .butTheme {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .butTheme:hover {
+    background-color: #4ca8af;
+    color: white;
+  }
+  
+  .project-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .project-table caption {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .project-table th,
+  .project-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .project-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .project-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Dark Theme */
+  body.dark-theme {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .container.dark-theme {
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .project-table.dark-theme th,
+  .project-table.dark-theme td {
+    border: 1px solid #555;
+  }
+  
+  .project-table.dark-theme th {
+    background-color: #555;
+  }
+  
+  .project-table.dark-theme tbody tr:nth-child(even) {
+    background-color: #666;
+  }
+  
+  /* Responsive Styles */
+  @media only screen and (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .project-table th,
+    .project-table td {
+      padding: 8px;
+    }
+  }  
