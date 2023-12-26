@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Kanit',sans-serif;
   line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
   background-color: #3e3c3c;
@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
@@ -29,27 +29,6 @@ h2 {
   color: gray;
 }
 
-.butTheme {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.butTheme:hover {
-  background-color: #4ca8af;
-  color: white;
-}
-
 .project-table {
   width: 100%;
   border-collapse: collapse;
@@ -67,16 +46,11 @@ h2 {
 .project-table td {
   padding: 12px;
   text-align: left;
-  color: #fff;
 }
 
 .project-table th {
   background-color: var(--table-header-bg, #444);
   color: #fff;
-}
-
-.project-table tbody tr:nth-child(even) {
-  background-color: var(--even-row-bg, #f9f9f9);
 }
 
 .findProject {

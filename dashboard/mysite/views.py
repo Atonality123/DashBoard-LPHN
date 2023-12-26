@@ -5,6 +5,10 @@ from .models import Member
 
 def coutMember(mymembers):
     percents = [0, 0, 0, 0]
+    total = len(mymembers)
+
+    if total == 0:
+        return percents
 
     for member in mymembers:
         if member["status"] == "ยังไม่ได้ดำเนินการ":
@@ -16,14 +20,13 @@ def coutMember(mymembers):
         elif member["status"] == "ดำเนินงานเสร็จแล้ว":
             percents[3] += 1
 
-    total = len(mymembers)
     percents = [int((x / total) * 100) for x in percents]
-
     return percents
 
 
 def home(request):
     mymembers = Member.objects.all().values()
+    mymembers = [{"remain": x["total"] - x["withdraw"], **x} for x in mymembers]
     percent = coutMember(mymembers)
     template = loader.get_template("home.html")
     context = {"mymembers": mymembers, "percents": percent}
