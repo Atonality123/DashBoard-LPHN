@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="{% static 'Box.css' %}" >
     <link rel="stylesheet" href="{% static 'lightHome.css' %}" id="light-theme" >
     <link rel="stylesheet" href="{% static 'darkHome.css' %}"id="dark-theme" disabled>
@@ -15,27 +17,49 @@
 <body>
 
     <div class="container">
-        <h1>กลุ่มงานยุทธศาสตร์ และแผนงานโครงการ</h1>
-        <h2>โรงพยาบาลลำพูน</h2>
-        <h2 class = "statusSentence">แถบแจ้งสถานการณ์ดำเนินงาน</h2>
 
-        <div class="statusBox">
-            <div class="plan">ยังไม่ได้ดำเนินการ</div>
-            <div class="permit">ขอเสนออนุมัติ</div>
-            <div class="process">ระหว่างดำเนินงาน</div>
-            <div class="finish">ดำเนินงานเสร็จแล้ว</div>
+        <div class="head">
+            <h1>กลุ่มงานยุทธศาสตร์และแผนงานโครงการ</h1>
+            <h2>โรงพยาบาลลำพูน</h2>
         </div>
 
-        <div class="dowloadForm">
-            <button>แบบฟอร์ม โครงการขออนุมัติต่างๆ</button>
-            <button>แบบฟอร์ม ขออนุมัติเบิกพัสดุ</button>
-            <button>ตัวอย่างโครงการ</button>
+        <div class="beforeTable">
+            <h2 class = "statusSentence">แถบแจ้งสถานการณ์ดำเนินงาน</h2>
+            <div class="statusBox">
+                <div class="plan" style="width: {{ percents.0 }}%"></div>
+                <div class="permit" style="width: {{ percents.1 }}%"></div>
+                <div class="process" style="width: {{ percents.2 }}%"></div>
+                <div class="finish" style="width: {{ percents.3 }}%"></div>
+            </div>                      
+            <div class="labelStatus">
+                <div>🔴 ยังไม่ได้ดำเนินการ {{percents.0}}%</div>
+                <div>🟠 ขอเสนออนุมัติ {{percents.1}}%</div>
+                <div>🟡 ระหว่างดำเนินงาน {{percents.2}}%</div>
+                <div>🟢 ดำเนินงานเสร็จแล้ว {{percents.3}}%</div>
+            </div>
         </div>
 
-        <label class="findProject">ค้นหาโครงการ</label>
-        <input name="search" type="text" placeholder="ชื่อโครงการ">
+        <div class="infomationBar">
+            <div class="dowloadForm">
+                <button>แบบฟอร์ม โครงการขออนุมัติต่างๆ</button>
+                <button>แบบฟอร์ม ขออนุมัติเบิกพัสดุ</button>
+                <button>ตัวอย่างโครงการ</button>
+            </div>
+            <div class="loadAndSearch">
+                <label class="findProject">ค้นหาโครงการ</label>
+                <input name="search" type="text" placeholder="ชื่อโครงการ" class="searchInput">
+                <button class="findButton">ค้นหา</button>
+                <button class="downloadFile">ดาวโหลดไฟล์โครงการทั้งหมด</button>
+            </div>
+        </div>
 
-        <button onclick="toggleTheme()" class="butTheme">เปลี่ยนธีม</button>
+        <div class="buttonRightTop">
+            <button onclick="toggleTheme()" class="butTheme">เปลี่ยนธีม</button>
+            <button class="adminButton" onclick="redirectToAdmin()">
+                <lord-icon src="https://cdn.lordicon.com/kthelypq.json" trigger="hover"></lord-icon>
+            </button>
+        </div>
+
         <table class="project-table">
             <caption>รายงานผลการดำเนินงานโครงการ</caption>
             <thead>
@@ -68,6 +92,10 @@
         
             lightThemeLink.toggleAttribute('disabled');
             darkThemeLink.toggleAttribute('disabled');
+        }
+        function redirectToAdmin() {
+            var adminUrl = '/admin/';
+            window.open(adminUrl, '_blank');
         }
     </script>
 
