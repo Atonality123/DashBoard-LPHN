@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
@@ -53,10 +53,6 @@ h2 {
 .project-table th {
   background-color: #f2f2f2;
   color: #333;
-}
-
-.project-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
 }
 
 .findProject {

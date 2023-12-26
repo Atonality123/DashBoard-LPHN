@@ -64,21 +64,27 @@
             <caption>รายงานผลการดำเนินงานโครงการ</caption>
             <thead>
                 <tr>
+                    <th>รหัสโครงการ</th>
                     <th>ชื่อโครงการ</th>
                     <th>หน่วยงาน</th>
                     <th>สถานะ</th>
                     <th>ยอดโครงการ(บาท)</th>
                     <th>เบิกแล้ว(บาท)</th>
+                    <th>คงเหลือ(บาท)</th>
+                    <th>หมายเหตุ</th>
                 </tr>
             </thead>
             <tbody>
                 {% for member in mymembers %}
                 <tr>
+                    <td>{{ member.code }}</td>
                     <td>{{ member.projectName }}</td>
                     <td>{{ member.agency }}</td>
                     <td>{{ member.status }}</td>
                     <td>{{ member.total }}</td>
                     <td>{{ member.withdraw }}</td>
+                    <td>{{ member.remain }}</td>
+                    <td>{{ member.note }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
