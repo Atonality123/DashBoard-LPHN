@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
@@ -51,6 +51,39 @@ h2 {
 .project-table th {
   background-color: var(--table-header-bg, #444);
   color: #fff;
+}
+
+.project-table th:nth-child(6) {
+  text-align: center;
+}
+
+.project-table td:nth-child(3){
+  width: 20%;
+}
+
+.project-table th:nth-child(2),
+.project-table td:nth-child(2){
+  width: 40%;
+}
+
+.finance {
+  font-family: 'Kanit',sans-serif;
+  background-color: rgb(36, 174, 36);
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin: auto;
+  padding: 8px 16px;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.finance:hover {
+  background-color: #5bafb3;
+  color: white;
 }
 
 .findProject {

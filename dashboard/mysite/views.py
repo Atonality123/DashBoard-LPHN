@@ -24,9 +24,24 @@ def coutMember(mymembers):
     return percents
 
 
+def getColor(mymembers):
+    for member in mymembers:
+        if member["status"] == "ยังไม่ได้ดำเนินการ":
+            member["color"] = "🔴"
+        elif member["status"] == "ขอเสนออนุมัติ":
+            member["color"] = "🟠"
+        elif member["status"] == "ระหว่างดำเนินงาน":
+            member["color"] = "🟡"
+        elif member["status"] == "ดำเนินงานเสร็จแล้ว":
+            member["color"] = "🟢"
+
+    return mymembers
+
+
 def home(request):
     mymembers = Member.objects.all().values()
     mymembers = [{"remain": x["total"] - x["withdraw"], **x} for x in mymembers]
+    mymembers = getColor(mymembers)
     percent = coutMember(mymembers)
     template = loader.get_template("home.html")
     context = {"mymembers": mymembers, "percents": percent}
