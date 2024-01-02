@@ -75,7 +75,7 @@
     font-family: 'Kanit',sans-serif;
     position: relative;
     top: 10px;
-    left: 223px;
+    left: 525px;
     padding: 5px 20px;
     font-size: 16px;
     text-align: center;
@@ -104,7 +104,8 @@
     font-family: 'Kanit',sans-serif;
     position: relative;
     top: 10px; 
-    left: 7px;
+    left: 15px;
+    max-width: 250px;
     padding: 5px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -122,6 +123,7 @@
     border: none;
     width: 45px;
     cursor: pointer;
+    left: 15px;
 }
 
 .findButton:hover{
@@ -152,12 +154,16 @@
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
-    margin-right: 90px;
+    margin-right: 400px;
 }
 
 /* infomation bar */
-
 .infomationBar .loadAndSearch{
     margin-top: -8px;
     margin-bottom: 40px;
+}
+
+/* caption */
+.showTotal {
+    margin-top: -15px;
 }

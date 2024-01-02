@@ -32,10 +32,10 @@
                 <div class="finish" style="width: {{ percents.3 }}%"></div>
             </div>                      
             <div class="labelStatus">
-                <div>🔴 ยังไม่ได้ดำเนินการ {{percents.0}}%</div>
-                <div>🟠 ขอเสนออนุมัติ {{percents.1}}%</div>
-                <div>🟡 ระหว่างดำเนินงาน {{percents.2}}%</div>
-                <div>🟢 ดำเนินงานเสร็จแล้ว {{percents.3}}%</div>
+                <div>🔴 ยังไม่ได้ดำเนินการ {{ percents.0 }}% </div>
+                <div>🟠 ขอเสนออนุมัติ {{ percents.1 }}% </div>
+                <div>🟡 ระหว่างดำเนินงาน {{ percents.2 }}% </div>
+                <div>🟢 ดำเนินงานเสร็จแล้ว {{ percents.3 }}% </div>
             </div>
         </div>
 
@@ -62,48 +62,33 @@
 
         <table class="project-table">
             <caption>รายงานผลการดำเนินงานโครงการ</caption>
+            <caption class="showTotal" 
+                    style="color: gray;">จำนวนทั้งหมด 
+                    <span id="projectCount">{{ mymembers|length }}</span> โครงการ</caption>
             <thead>
                 <tr>
-                    <th>รหัสโครงการ</th>
+                    <th style="text-align: center;">รหัสโครงการ</th>
                     <th>ชื่อโครงการ</th>
                     <th>หน่วยงาน</th>
                     <th>สถานะ</th>
-                    <th>ยอดโครงการ(บาท)</th>
-                    <th>เบิกแล้ว(บาท)</th>
-                    <th>คงเหลือ(บาท)</th>
-                    <th>หมายเหตุ</th>
+                    <th style="text-align: center;">รายละเอียด</th>
                 </tr>
             </thead>
             <tbody>
                 {% for member in mymembers %}
                 <tr>
-                    <td>{{ member.code }}</td>
-                    <td>{{ member.projectName }}</td>
+                    <td style="text-align: center;">{{ member.code }}</td>
+                    <td>{{ member.color }} {{ member.projectName }}</td>
                     <td>{{ member.agency }}</td>
                     <td>{{ member.status }}</td>
-                    <td>{{ member.total }}</td>
-                    <td>{{ member.withdraw }}</td>
-                    <td>{{ member.remain }}</td>
-                    <td>{{ member.note }}</td>
-                </tr>
+                    <td><button class="finance">การเงิน</button></td>
+                </tr>                
                 {% endfor %}
             </tbody>
         </table>
     </div>
-
-    <script>
-        function toggleTheme() {
-            const lightThemeLink = document.getElementById('light-theme');
-            const darkThemeLink = document.getElementById('dark-theme');
-        
-            lightThemeLink.toggleAttribute('disabled');
-            darkThemeLink.toggleAttribute('disabled');
-        }
-        function redirectToAdmin() {
-            var adminUrl = '/admin/';
-            window.open(adminUrl, '_blank');
-        }
-    </script>
+    
+    <script src="{% static 'js/function.js' %}"></script>
 
 </body>
 
