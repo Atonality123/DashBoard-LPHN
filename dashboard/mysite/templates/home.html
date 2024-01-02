@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="{% static 'Box.css' %}" >
     <link rel="stylesheet" href="{% static 'lightHome.css' %}" id="light-theme" >
@@ -77,11 +78,11 @@
             <tbody>
                 {% for member in mymembers %}
                 <tr>
-                    <td style="text-align: center;">{{ member.code }}</td>
+                    <td style="text-align: center;">{{ member.id }}</td>
                     <td>{{ member.color }} {{ member.projectName }}</td>
                     <td>{{ member.agency }}</td>
                     <td>{{ member.status }}</td>
-                    <td><button class="finance">การเงิน</button></td>
+                    <td><button class="finance" onclick="openFinanceModal(parseInt('{{ member.id }}'))">การเงิน</button></td>
                 </tr>                
                 {% endfor %}
             </tbody>
@@ -91,5 +92,13 @@
     <script src="{% static 'js/function.js' %}"></script>
 
 </body>
+
+<div id="financeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeFinanceModal()">&times;</span>
+        <h2>ยอดโครงการ : <span id="projectValue"></span> บาท</h2>
+        <div class="chart-container"><canvas id="pieChart"></canvas></div>
+    </div>
+</div>
 
 </html>

@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.template import loader
 from .models import Member
 
@@ -40,9 +41,27 @@ def getColor(mymembers):
 
 def home(request):
     mymembers = Member.objects.all().values()
-    mymembers = [{"remain": x["total"] - x["withdraw"], **x} for x in mymembers]
     mymembers = getColor(mymembers)
     percent = coutMember(mymembers)
+
     template = loader.get_template("home.html")
     context = {"mymembers": mymembers, "percents": percent}
     return HttpResponse(template.render(context, request))
+
+
+def finance_data(request, member_id):
+    member = Member.objects.get(id=member_id)
+    remain = member.total - member.withdraw
+
+    data = {
+        "total": member.total,
+        "withdraw": member.withdraw,
+        "remain": remain,
+    }
+
+    response = JsonResponse(data)
+    response["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response["Pragma"] = "no-cache"
+    response["Expires"] = "0"
+
+    return response
