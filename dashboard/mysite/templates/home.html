@@ -78,11 +78,11 @@
             <tbody>
                 {% for member in mymembers %}
                 <tr>
-                    <td style="text-align: center;">{{ member.id }}</td>
+                    <td style="text-align: center;">{{ member.code }}</td>
                     <td>{{ member.color }} {{ member.projectName }}</td>
                     <td>{{ member.agency }}</td>
                     <td>{{ member.status }}</td>
-                    <td><button class="finance" onclick="openFinanceModal(parseInt('{{ member.id }}'))">การเงิน</button></td>
+                    <td><button  style="background-color: #3937bd; color: white;" class="finance" onclick="openFinanceModal(parseInt('{{ member.id }}'))">การเงิน</button></td>
                 </tr>                
                 {% endfor %}
             </tbody>

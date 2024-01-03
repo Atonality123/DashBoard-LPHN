@@ -68,22 +68,15 @@ h2 {
 
 .finance {
   font-family: 'Kanit',sans-serif;
-  background-color: rgb(36, 174, 36);
   font-size: 14px;
   text-align: center;
   display: block;
   margin: auto;
   padding: 8px 16px;
-  color: #333;
-  border: none;
   border-radius: 5px;
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-}
-
-.finance:hover {
-  background-color: #5bafb3;
-  color: white;
 }
 
 .findProject {

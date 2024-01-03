@@ -70,13 +70,13 @@ h2 {
 
 .finance {
   font-family: 'Kanit',sans-serif;
-  background-color: rgb(36, 174, 36);
+  background-color: blue;
   font-size: 14px;
   text-align: center;
   display: block;
   margin: auto;
   padding: 8px 16px;
-  color: #333;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
