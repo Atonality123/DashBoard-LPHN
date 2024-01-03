@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
@@ -70,22 +70,15 @@ h2 {
 
 .finance {
   font-family: 'Kanit',sans-serif;
-  background-color: blue;
   font-size: 14px;
   text-align: center;
   display: block;
   margin: auto;
-  padding: 8px 16px;
-  color: white;
-  border: none;
+  padding: 12px 16px;
   border-radius: 5px;
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-}
-
-.finance:hover {
-  background-color: #5bafb3;
-  color: white;
 }
 
 .findProject {
