@@ -35,9 +35,18 @@ def home(request):
         status_list,
         total_list,
         withdraw_list,
+        detail_list,
     ) = fetch_data()
 
-    updateDB(code_list, name_list, agency_list, status_list, total_list, withdraw_list)
+    updateDB(
+        code_list,
+        name_list,
+        agency_list,
+        status_list,
+        total_list,
+        withdraw_list,
+        detail_list,
+    )
 
     mymembers = Member.objects.all().values()
     mymembers = getColor(mymembers)
