@@ -5,6 +5,10 @@ class Member(models.Model):
     def __str__(self):
         return f"{self.projectName} {self.agency}"
 
+    @classmethod
+    def search(cls, query):
+        return cls.objects.filter(projectName__contains=query).values()
+
     CHOICES = [
         ("ยังไม่ได้ดำเนินการ", "ยังไม่ได้ดำเนินการ"),
         ("ขอเสนอโครงการภายใน รพ.", "ขอเสนอโครงการภายใน รพ."),

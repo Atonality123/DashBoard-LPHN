@@ -10,8 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="{% static 'Box.css' %}" >
-    <link rel="stylesheet" href="{% static 'lightHome.css' %}" id="light-theme" >
-    <link rel="stylesheet" href="{% static 'darkHome.css' %}"id="dark-theme" disabled>
+    <link rel="stylesheet" href="{% static 'lightHome.css' %}">
     <title>โครงการ</title>
 </head>
 
@@ -42,20 +41,21 @@
 
         <div class="infomationBar">
             <div class="dowloadForm">
-                <button>แบบฟอร์ม โครงการขออนุมัติต่างๆ</button>
-                <button>แบบฟอร์ม ขออนุมัติเบิกพัสดุ</button>
-                <button>ตัวอย่างโครงการ</button>
+                <button onclick="dowloadForm('form1')">แบบฟอร์ม โครงการขออนุมัติต่างๆ</button>
+                <button onclick="dowloadForm('form2')">แบบฟอร์ม ขออนุมัติเบิกพัสดุ</button>
+                <button onclick="dowloadForm('form3')">ตัวอย่างโครงการ</button>
             </div>
             <div class="loadAndSearch">
-                <label class="findProject">ค้นหาโครงการ</label>
-                <input name="search" type="text" placeholder="ชื่อโครงการ" class="searchInput">
-                <button class="findButton">ค้นหา</button>
-                <button class="downloadFile">ดาวโหลดไฟล์โครงการทั้งหมด</button>
+                <form action="{% url 'search_view' %}" method="get">
+                    <label class="findProject">ค้นหาโครงการ</label>
+                    <input name="search" type="text" placeholder="ชื่อโครงการ" class="searchInput" value="{{ query }}">
+                    <button type="submit" class="findButton">ค้นหา</button>
+                </form>
+                <button class="downloadFile" onclick="loadExel()">ดาวโหลดไฟล์โครงการทั้งหมด</button>
             </div>
         </div>
 
         <div class="buttonRightTop">
-            <button onclick="toggleTheme()" class="butTheme">เปลี่ยนธีม</button>
             <button class="adminButton" onclick="redirectToAdmin()">
                 <lord-icon src="https://cdn.lordicon.com/kthelypq.json" trigger="hover"></lord-icon>
             </button>
@@ -64,8 +64,15 @@
         <table class="project-table">
             <caption>รายงานผลการดำเนินงานโครงการ</caption>
             <caption class="showTotal" 
-                    style="color: gray;">จำนวนทั้งหมด 
-                    <span id="projectCount">{{ mymembers|length }}</span> โครงการ</caption>
+                    style="color: gray;">
+                    {% if query %}
+                        ผลลัพธ์การค้นหา จำนวนทั้งหมด 
+                        <span id="projectCount">{{ result|length }}</span> โครงการ
+                    {% else %}
+                        จำนวนทั้งหมด 
+                        <span id="projectCount">{{ mymembers|length }}</span> โครงการ
+                    {% endif %}
+            </caption>
             <thead>
                 <tr>
                     <th style="text-align: center;">รหัสโครงการ</th>
@@ -76,15 +83,31 @@
                 </tr>
             </thead>
             <tbody>
-                {% for member in mymembers %}
-                <tr>
-                    <td style="text-align: center;">{{ member.code }}</td>
-                    <td>{{ member.color }} {{ member.projectName }}</td>
-                    <td>{{ member.agency }}</td>
-                    <td>{{ member.status }}</td>
-                    <td><button  style="background-color: #3937bd; color: white;" class="finance" onclick="openFinanceModal(parseInt('{{ member.id }}'))">การเงิน</button></td>
-                </tr>                
-                {% endfor %}
+                {% if query %}
+                    {% for member in result %}
+                    <tr>
+                        <td style="text-align: center;">{{ member.code }}</td>
+                        <td>{{ member.color }} {{ member.projectName }}</td>
+                        <td>{{ member.agency }}</td>
+                        <td>{{ member.status }}</td>
+                        <td><button  style="background-color: #3937bd; color: white;" class="finance" onclick="openFinanceModal(parseInt('{{ member.id }}'))">การเงิน</button></td>
+                    </tr>                
+                    {% endfor %}
+                {% elif mymembers%}
+                    {% for member in mymembers %}
+                    <tr>
+                        <td style="text-align: center;">{{ member.code }}</td>
+                        <td>{{ member.color }} {{ member.projectName }}</td>
+                        <td>{{ member.agency }}</td>
+                        <td>{{ member.status }}</td>
+                        <td><button  style="background-color: #3937bd; color: white;" class="finance" onclick="openFinanceModal(parseInt('{{ member.id }}'))">การเงิน</button></td>
+                    </tr>                
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" style="text-align: center;">ไม่พบโครงการที่ค้นหา</td>
+                    </tr>
+                {% endif %}
             </tbody>
         </table>
     </div>
