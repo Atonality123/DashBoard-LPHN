@@ -1,16 +1,24 @@
-function toggleTheme() {
-    const lightThemeLink = document.getElementById('light-theme');
-    const darkThemeLink = document.getElementById('dark-theme');
-    const modal = document.getElementById('financeModal');
-    
-    modal.classList.toggle('dark-active');
+function dowloadForm(form){
+    var link1 = "https://drive.google.com/drive/folders/1Zj5OZuio9MrPvoB2w0TxT4IfUgyW1xUS?usp=sharing";
+    var link2 = "https://drive.google.com/drive/folders/1lD-fY3vVGeDiFq1-V16cSkwgj4doEv9R?usp=sharing";
+    var link3 = "https://drive.google.com/drive/folders/1K6l9LikPZw1K61bVGaboQNQvCwzfxoOv?usp=sharing";
 
-    lightThemeLink.toggleAttribute('disabled');
-    darkThemeLink.toggleAttribute('disabled');
-
-    closeFinanceModal();
+    if(form == 'form1')
+        window.open(link1, '_blank'); 
+    else if(form == 'form2')
+        window.open(link2, '_blank'); 
+    else if(form == 'form3')
+        window.open(link3, '_blank'); 
 }
 
+function loadExel(nameFile){
+    var downloadLink = document.createElement('a');
+    downloadLink.href = '/download-excel/';
+    downloadLink.download = nameFile;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
 
 function redirectToAdmin() {
     var adminUrl = '/admin/';
